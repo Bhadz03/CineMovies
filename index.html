@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover trending movies, TV shows, and anime. Find your next favorite entertainment!" />
+  <meta name="author" content="Your Name" />
+  <title>My Website - Trending Movies, TV Shows, Anime</title>
+
+  <!-- Preloading for better performance -->
+  <link rel="preload" href="css/home.css" as="style">
+  <link rel="preload" href="js/home.js" as="script">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- External stylesheets and Font Awesome icons -->
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- JS -->
+  <script defer src="js/home.js"></script>
+
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="logo.png" alt="My Website Logo" />
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" aria-label="Search for movies, TV shows, or anime" />
+    </div>
+  </header>
+
+  <!-- Banner Section -->
+  <section class="banner" id="banner">
+    <h1 id="banner-title"></h1>
+  </section>
+
+  <!-- Trending Movies -->
+  <section class="row">
+    <h2>Trending Movies</h2>
+    <div class="list" id="movies-list"></div>
+  </section>
+
+  <!-- Trending TV Shows -->
+  <section class="row">
+    <h2>Trending TV Shows</h2>
+    <div class="list" id="tvshows-list"></div>
+  </section>
+
+  <!-- Trending Anime -->
+  <section class="row">
+    <h2>Trending Anime</h2>
+    <div class="list" id="anime-list"></div>
+  </section>
+
+  <!-- Modal for Item Details -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()" style="color: red;" aria-label="Close modal">&times;</span>
+      <div class="modal-body">
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
+        </div>
+      </div>
+      <div class="server-selector">
+        <label for="server">Change Server:</label>
+        <select id="server" onchange="changeServer()">
+          <option value="vidsrc.cc">Vidsrc.cc</option>
+          <option value="vidsrc.me">Vidsrc.me</option>
+          <option value="player.videasy.net">Player.Videasy.net</option>
+        </select>
+      </div>
+      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="search-modal" id="search-modal">
+    <span class="close" onclick="closeSearchModal()" style="color: red;" aria-label="Close search modal">&times;</span>
+    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" aria-label="Search input" />
+    <div class="results" id="search-results"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 My Website. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Disclaimer</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
